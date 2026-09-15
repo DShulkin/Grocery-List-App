@@ -38,18 +38,15 @@ const Item = (props) => {
     <div className="item">
       <button className="remove-item" />
       <span className="item-name">{props.name}</span>
-      <Counter name={props.name} />
+      <Counter />
     </div>
   )
 }
 
-const Counter = (props) => {
+const Counter = () => {
   const [quantity, setQuantity] = useState(0)
   const incrementQuantity = () => {
     setQuantity(prevQuantity => prevQuantity + 1)
-    if (props.name === "Apples") {
-      setQuantity(prevQuantity => prevQuantity + 1 )
-    }
   }
 
   const decrementQuantity = () => {
