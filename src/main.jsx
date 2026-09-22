@@ -1,29 +1,6 @@
 import { createRoot } from 'react-dom/client'
 import { StrictMode, useState } from 'react' 
 
-const items = [
-  {
-    name: "Apples",
-    quantity: 5,
-    id : 1
-  },
-  {
-    name: "Bananas",
-    quantity: 7,
-    id : 2
-  },
-  {
-    name: "Box of Pasta",
-    quantity: 1,
-    id : 3
-  },
-  {
-    name: "Cookies",
-    quantity: 12,
-    id : 4
-  },
-]
-
 const Header = (props) => {
   return (
     <header>
@@ -65,16 +42,23 @@ const Counter = () => {
   )
 }
 
-const App = (props) => {
+const App = () => {
+  const [items, setItems] = useState([
+  { name: "Apples", id : 1 },
+  { name: "Bananas", id : 2 },
+  { name: "Box of Pasta", id : 3 },
+  { name: "Cookies", id : 4 },
+])
+
   return (
     <div className='grocery-list'>
       <Header 
         title="My Grocery List" 
-        itemTotal={props.initialList.length}
+        itemTotal={items.length}
       />
 
       {/* Grocery List */}
-      {props.initialList.map( item => 
+      {items.map( item => 
         <Item 
           name={item.name} 
           key={item.id}  
@@ -87,6 +71,6 @@ const App = (props) => {
 const root = createRoot(document.getElementById('root'))
 root.render(
   <StrictMode>
-    <App initialList={items}/>
+    <App />
   </StrictMode>
 )
