@@ -51,8 +51,20 @@ const App = () => {
 ])
 
 const handleRemoveItem = (id) => {
-  setItems(prevItems => prevItems.filter(i => i.id !== id))
+  setItems(prevItems => prevItems.filter(item => item.id !== id))
 }
+
+/* CONSOLE LOGGING LEFTOVER ITEMS:
+const handleRemoveItem = (id) => {
+  setItems(prevItems => {
+    const filteredItems = prevItems.filter(item => item.id !== id)
+
+    console.log("Items left:", filteredItems)
+
+    return filteredItems
+  })
+}
+  */
 
   return (
     <div className='grocery-list'>
